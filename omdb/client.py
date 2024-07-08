@@ -15,7 +15,7 @@ class OmdbMovie:
         
     @property
     def imdb_id(self):
-        return self.data["imdbId"]
+        return self.data["imdbID"]
 
     @property
     def title(self):
@@ -29,7 +29,7 @@ class OmdbMovie:
     def runtime_minutes(self):
         self.check_for_detail_data_key("Runtime")
 
-        runtime, units = self.data.split(" ")
+        runtime, units = self.data["Runtime"].split(" ")
 
         if units != "min":
             raise ValueError(f"Expected 'min', got {units}")

@@ -22,7 +22,7 @@ class Movie(models.Model):
 
     title = models.TextField()
     year = models.PositiveIntegerField()
-    runtime_minutes = models.PositiveIntegerField()
+    runtime_minutes = models.PositiveIntegerField(null=True)
     imdb_id = models.SlugField(unique=True)
     genres = models.ManyToManyField(Genre, related_name="movies")
     plot = models.TextField(null=True, blank=True)

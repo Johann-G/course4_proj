@@ -47,6 +47,8 @@ class Dev(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'django_celery_results',
+        'django_celery_beat',
         'movies',
     ]
 
@@ -157,5 +159,11 @@ class Dev(Configuration):
         },
     }
 
-    OMDB_KEY = "125edb1d"
+    #reactivate and add key
+    # OMDB_KEY = ""
 
+    CELERY_RESULT_BACKEND = "django-db"
+    CELERY_BROKER_URL = "redis://localhost:6379/0"
+
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    ADMINS = [("Johann", "johann@gmail.com")]
